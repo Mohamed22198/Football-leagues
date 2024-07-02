@@ -17,14 +17,12 @@ let getAllMatchs = (req, res) => {
     }
   });
 };
-
 let insertNewMatch = (req, res) => {
   const LEAGUE = req.params.league;
   let mtch = new Match(req.body.team1, req.body.team2);
   mtch.saveMatch(LEAGUE);
   res.json(req.body);
 };
-
 let deleteMatch = (req, res) => {
   const league = req.params.league;
   const team1 = req.body.team1;
