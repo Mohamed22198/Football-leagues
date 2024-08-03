@@ -2,11 +2,14 @@ const express = require("express");
 const session = require("express-session");
 const app = express();
 const path = require("path");
+require("dotenv").config();
 const port = process.env.PORT || 3333;
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
+
+
 mongoose
-  .connect("mongodb://localhost:27017/football", {
+  .connect(process.env.MONGODB_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
